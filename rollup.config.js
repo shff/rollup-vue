@@ -13,6 +13,8 @@ import nested from "postcss-nested";
 import cssnext from "postcss-cssnext";
 import cssnano from "cssnano";
 
+const watch = process.env.ROLLUP_WATCH == "true";
+
 export default {
   input: "app/main.js",
   output: {
@@ -25,7 +27,7 @@ export default {
     include: "app/**"
   },
   plugins: [
-    livereload(),
+    watch && livereload(),
     purifycss({
       content: ["main/**/*.js", "main/**/*.html"],
       options: {
@@ -46,7 +48,10 @@ export default {
     resolve(),
     uglify(),
     babel({ exclude: "node_modules/**" }),
-    serve("dist"),
+    watch && serve({
+      open: true,
+      contentBase: "dist"
+    }),
     vue()
   ]
 };
