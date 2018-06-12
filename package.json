@@ -5,6 +5,7 @@
     "build": "rollup -c rollup.config.js",
     "clean": "rimraf dist",
     "lint": "eslint app/**/*.js app/**/*.vue",
+    "lint:css": "stylelint '**/*.less' '**/*.vue' --syntax less",
     "esw": "esw ./app --ext .js --ext .vue -w --color --clear",
     "test": "jest"
   },
@@ -15,6 +16,7 @@
     "babel-core": "^6.26.3",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
+    "less": "^3.0.4",
     "rollup": "^0.60.2",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-node-resolve": "^3.3.0",
@@ -40,6 +42,9 @@
     "jest-serializer-vue": "^2.0.2",
     "jest-vue-preprocessor": "^1.4.0",
     "rimraf": "^2.6.2",
+    "stylelint": "^9.2.1",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-processor-html": "^1.0.0",
     "vue-jest": "^2.6.0"
   },
   "babel": {
@@ -120,5 +125,11 @@
       "import/no-unresolved": "off",
       "vue/max-attributes-per-line": "off"
     }
+  },
+  "stylelint": {
+    "processors": [
+      "stylelint-processor-html"
+    ],
+    "extends": "stylelint-config-standard"
   }
 }
