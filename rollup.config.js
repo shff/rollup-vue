@@ -4,6 +4,11 @@ import babel from 'rollup-plugin-babel';
 import vue from "rollup-plugin-vue";
 import { uglify } from 'rollup-plugin-uglify';
 
+import simplevars from "postcss-simple-vars";
+import nested from "postcss-nested";
+import cssnext from "postcss-cssnext";
+import cssnano from "cssnano";
+
 export default {
   input: "app/main.js",
   output: {
@@ -17,10 +22,12 @@ export default {
   },
   plugins: [
     postcss({
-      "plugins": {
-        "autoprefixer": {},
-        "postcss-nested": {}
-      }
+      "plugins": [
+        simplevars(),
+        nested(),
+        cssnext(),
+        cssnano()
+      ]
     }),
     resolve(),
     uglify(),
