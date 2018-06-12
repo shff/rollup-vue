@@ -1,4 +1,5 @@
 import livereload from "rollup-plugin-livereload";
+import purifycss from "rollup-plugin-purifycss";
 import postcss from "rollup-plugin-postcss";
 import resolve from "rollup-plugin-node-resolve";
 import replace from "rollup-plugin-replace";
@@ -25,11 +26,16 @@ export default {
   },
   plugins: [
     livereload(),
+    purifycss({
+      content: ["main/**/*.js", "main/**/*.html"],
+      options: {
+        minify: true
+      }
+    }),
     postcss({
       "plugins": [
         simplevars(),
         nested(),
-        cssnext(),
         cssnano()
       ]
     }),
