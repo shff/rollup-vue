@@ -14,13 +14,16 @@
     "vue": "^2.5.16"
   },
   "devDependencies": {
+    "autoprefixer": "^8.6.2",
     "babel-core": "^6.26.3",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "less": "^3.0.4",
+    "postcss-nested": "^3.0.0",
     "rollup": "^0.60.2",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-uglify": "^4.0.0",
     "rollup-plugin-vue": "^4.2.0",
     "vue-template-compiler": "^2.5.16"
