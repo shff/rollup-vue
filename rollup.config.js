@@ -48,7 +48,10 @@ export default {
     }),
     resolve(),
     uglify(),
-    babel({ exclude: "node_modules/**" }),
+    babel({
+      exclude: "node_modules/**",
+      runtimeHelpers: true
+    }),
     watch && serve({
       open: true,
       contentBase: "dist",
