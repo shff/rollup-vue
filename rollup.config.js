@@ -1,5 +1,4 @@
 import livereload from "rollup-plugin-livereload";
-import purifycss from "rollup-plugin-purifycss";
 import postcss from "rollup-plugin-postcss";
 import resolve from "rollup-plugin-node-resolve";
 import replace from "rollup-plugin-replace";
@@ -8,6 +7,7 @@ import babel from "rollup-plugin-babel";
 import vue from "rollup-plugin-vue";
 import { uglify } from "rollup-plugin-uglify";
 
+import removeUnusedCSS from "postcss-remove-unused-css";
 import simplevars from "postcss-simple-vars";
 import nested from "postcss-nested";
 import cssnano from "cssnano";
@@ -27,20 +27,14 @@ export default {
   },
   plugins: [
     watch && livereload(),
-    purifycss({
-      content: [
-        "main/**/*.js",
-        "main/**/*.html",
-      ],
-      options: {
-        minify: true,
-      },
-    }),
     postcss({
       plugins: [
         simplevars(),
         nested(),
         cssnano(),
+        removeUnusedCSS({
+          path: "./app",
+        }),
       ],
     }),
     replace({
@@ -50,7 +44,7 @@ export default {
     uglify(),
     babel({
       exclude: "node_modules/**",
-      runtimeHelpers: true
+      runtimeHelpers: true,
     }),
     watch && serve({
       open: true,
