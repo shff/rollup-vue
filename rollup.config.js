@@ -10,6 +10,7 @@ import { terser } from "rollup-plugin-terser";
 
 import removeUnusedCSS from "postcss-remove-unused-css";
 import simplevars from "postcss-simple-vars";
+import autoprefixer from "autoprefixer";
 import nested from "postcss-nested";
 import cssnano from "cssnano";
 
@@ -32,6 +33,7 @@ export default {
     watch && livereload(),
     postcss({
       plugins: [
+        autoprefixer(),
         simplevars(),
         nested(),
         cssnano(),
