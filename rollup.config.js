@@ -5,7 +5,7 @@ import replace from "rollup-plugin-replace";
 import serve from "rollup-plugin-serve";
 import babel from "rollup-plugin-babel";
 import vue from "rollup-plugin-vue";
-import { uglify } from "rollup-plugin-uglify";
+import { terser } from "rollup-plugin-terser";
 
 import removeUnusedCSS from "postcss-remove-unused-css";
 import simplevars from "postcss-simple-vars";
@@ -41,11 +41,11 @@ export default {
       "process.env.NODE_ENV": JSON.stringify("production"),
     }),
     resolve(),
-    uglify(),
     babel({
       exclude: "node_modules/**",
       runtimeHelpers: true,
     }),
+    terser(),
     watch && serve({
       open: true,
       contentBase: "dist",
