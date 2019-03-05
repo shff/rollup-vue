@@ -4,11 +4,11 @@
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "watch": "rollup -c rollup.config.js --watch",
-    "clean": "rimraf dist",
-    "purify": "purifycss dist/*.css app/**/*.vue --min --out dist/*.css",
+    "rebuild": "yarn clean && yarn build",
+    "clean": "rm -rf dist",
     "lint": "eslint app/**/*.js app/**/*.vue",
     "lint:css": "stylelint '**/*.less' '**/*.vue' --syntax less",
-    "esw": "esw ./app --ext .js --ext .vue -w --color --clear",
+    "lint:watch": "esw app/*.js app/**/*.vue -w --color --clear",
     "test": "jasmine"
   },
   "dependencies": {
@@ -53,7 +53,6 @@
     "eslint-plugin-vue": "^5.2.2",
     "eslint-watch": "^4.0.2",
     "jasmine": "^3.3.1",
-    "rimraf": "^2.6.3",
     "stylelint": "^9.10.1",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-processor-html": "^1.0.0"
