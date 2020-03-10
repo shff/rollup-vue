@@ -2,14 +2,15 @@
   "name": "rollup-vue-template",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c rollup.config.js",
+    "build": "rollup -c rollup.config.js && cp app/index.html dist/",
     "watch": "rollup -c rollup.config.js --watch",
     "rebuild": "yarn clean && yarn build",
     "clean": "rm -rf dist",
-    "lint": "eslint app/**/*.js app/**/*.vue",
+    "lint": "eslint app/**/*.js",
     "lint:css": "stylelint '**/*.less' '**/*.vue' --syntax less",
     "lint:watch": "esw app/*.js app/**/*.vue -w --color --clear",
-    "test": "jasmine"
+    "test": "jasmine",
+    "e2e": "cypress run -C false --config video=false,integrationFolder=app,supportFile=false,pluginsFile=false,testFiles=**/*.spec.js"
   },
   "dependencies": {
     "vue": "^2.6.11"
@@ -43,16 +44,21 @@
   "optionalDependencies": {
     "@vue/test-utils": "^1.0.0-beta.30",
     "babel-eslint": "^10.0.3",
+    "cypress": "^4.1.0",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-no-loops": "^0.3.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-vue": "^6.1.2",
     "eslint-watch": "^6.0.1",
+    "husky": "^4.2.3",
     "jasmine": "^3.5.0",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
     "stylelint": "^13.0.0",
     "stylelint-config-standard": "^19.0.0",
     "stylelint-processor-html": "^1.0.0"
@@ -71,11 +77,15 @@
     "not op_mini all"
   ],
   "eslintConfig": {
+    "ignorePatterns": [
+      "**/*.spec.js",
+      "node_modules/"
+    ],
     "extends": [
       "eslint:recommended",
+      "plugin:prettier/recommended",
       "plugin:vue/recommended",
-      "plugin:promise/recommended",
-      "airbnb-base"
+      "plugin:promise/recommended"
     ],
     "plugins": [
       "vue",
@@ -125,5 +135,16 @@
       "stylelint-processor-html"
     ],
     "extends": "stylelint-config-standard"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,css,json,md,vue}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
