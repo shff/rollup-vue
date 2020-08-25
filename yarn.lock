@@ -6500,10 +6500,10 @@ rollup-plugin-node-resolve@^5.2.0:
     resolve "^1.11.1"
     rollup-pluginutils "^2.8.1"
 
-rollup-plugin-postcss@^3.1.4:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-3.1.4.tgz#b672dd6849d013f4b0c1ccff80ef54ff03817444"
-  integrity sha512-nLefjTDau8dpfEq1VSag1jjRizQc9/Io26mlC+/zkJVnvgKEz9xt3nvYW6vlOM0LffGFVapZNyr23Led1VN9Lw==
+rollup-plugin-postcss@^3.1.6:
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-3.1.6.tgz#d997b69df09394918dbecf6b699add06ee4a1fe6"
+  integrity sha512-lkKMTXhPyaNgELFFf7mAGLqFTr13Lswak1YkP+b9rfl6YNVHxs3PYgZFAGLOyLvOtSuCVRq6BryXs1EgyC+nHQ==
   dependencies:
     chalk "^4.0.0"
     concat-with-sourcemaps "^1.1.0"
