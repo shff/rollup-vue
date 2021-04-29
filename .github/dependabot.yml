@@ -1,0 +1,17 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 10
+  versioning-strategy: increase
+  ignore:
+  - dependency-name: rollup
+    versions:
+    - 2.41.3
+  - dependency-name: cypress
+    versions:
+    - 6.7.0
+    - 6.7.1
