@@ -28,7 +28,7 @@
     "postcss-nested": "^4.2.3",
     "postcss-remove-unused-css": "^1.0.4",
     "postcss-simple-vars": "^6.0.3",
-    "rollup": "^2.48.0",
+    "rollup": "^2.56.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-gzip": "^2.5.0",
     "rollup-plugin-livereload": "^2.0.0",
