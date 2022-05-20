@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.0",
-    "@babel/plugin-transform-runtime": "^7.17.12",
+    "@babel/plugin-transform-runtime": "^7.18.0",
     "@babel/preset-env": "^7.18.0",
     "@vue/compiler-sfc": "^3.2.34",
     "autoprefixer": "^10.4.7",
