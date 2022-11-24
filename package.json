@@ -54,7 +54,7 @@
     "eslint-plugin-no-loops": "^0.3.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-vue": "^9.7.0",
+    "eslint-plugin-vue": "^9.8.0",
     "eslint-watch": "^8.0.0",
     "husky": "^8.0.2",
     "jasmine": "^4.5.0",
