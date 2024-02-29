@@ -16,7 +16,7 @@
     "vue": "^2.7.16"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.9",
+    "@babel/core": "^7.24.0",
     "@babel/plugin-transform-runtime": "^7.23.9",
     "@babel/preset-env": "^7.23.9",
     "@vue/compiler-sfc": "^3.4.20",
